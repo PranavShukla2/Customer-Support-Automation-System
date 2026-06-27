@@ -33,6 +33,8 @@ def _generate_draft(query: str, context: str, department: str) -> str:
 
 
 def sales_agent(state: SupportState) -> dict:
+    print("[LOG] Sales Agent invoked.")
+    print("[LOG] Retrieving RAG context from company documents...")
     query = state["messages"][-1].content
     context = state.get("context", "") + "\n" + RAG_SOURCES["Sales"]
     draft = _generate_draft(query, context, "Sales")
@@ -40,6 +42,8 @@ def sales_agent(state: SupportState) -> dict:
 
 
 def technical_agent(state: SupportState) -> dict:
+    print("[LOG] Technical Agent invoked.")
+    print("[LOG] Retrieving RAG context from company documents...")
     query = state["messages"][-1].content
     context = state.get("context", "") + "\n" + RAG_SOURCES["Technical"]
     draft = _generate_draft(query, context, "Technical")
@@ -47,6 +51,8 @@ def technical_agent(state: SupportState) -> dict:
 
 
 def billing_agent(state: SupportState) -> dict:
+    print("[LOG] Billing Agent invoked.")
+    print("[LOG] Retrieving RAG context from company documents...")
     query = state["messages"][-1].content
     context = state.get("context", "") + "\n" + RAG_SOURCES["Billing"]
 
@@ -58,6 +64,8 @@ def billing_agent(state: SupportState) -> dict:
 
 
 def account_agent(state: SupportState) -> dict:
+    print("[LOG] Account Agent invoked.")
+    print("[LOG] Retrieving RAG context from company documents...")
     query = state["messages"][-1].content
     context = state.get("context", "") + "\n" + RAG_SOURCES["Account"]
     draft = _generate_draft(query, context, "Account")

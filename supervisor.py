@@ -14,6 +14,7 @@ def human_review_node(state: SupportState) -> dict:
 
 
 def supervisor_agent(state: SupportState) -> dict:
+    print("[LOG] Supervisor reviewing and polishing draft response...")
     draft = state.get("draft_response", "")
     query = state["messages"][-1].content
 

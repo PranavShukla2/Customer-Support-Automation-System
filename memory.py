@@ -16,6 +16,7 @@ llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
 
 
 def memory_agent(state: SupportState) -> dict:
+    print("[LOG] Recalling previous conversation history from SQLite database...")
     query = state["messages"][-1].content
 
     history_lines = []

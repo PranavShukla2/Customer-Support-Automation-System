@@ -17,8 +17,10 @@ classifier = llm.with_structured_output(IntentClassification)
 
 
 def classify_intent(state: SupportState) -> dict:
+    print("[LOG] Classifying intent...")
     last_message = state["messages"][-1]
     result = classifier.invoke([last_message])
+    print(f"[LOG] Routing query to: {result.intent}")
     return {"intent": result.intent}
 
 
